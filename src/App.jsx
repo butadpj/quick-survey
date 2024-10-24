@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { ref as firebaseRef, onValue, update } from "firebase/database";
 import { database } from "./utils/firebase";
 
