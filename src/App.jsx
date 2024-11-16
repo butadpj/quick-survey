@@ -17,7 +17,7 @@ function App() {
       const updates = {
         [`/responses/${username}`]: "",
       };
-      update(firebaseRef(database, "react-intro-survey"), updates)
+      update(firebaseRef(database, "familiarity"), updates)
         .then(() => {
           console.log(`User "${username}" saved to Firebase`);
           setIsRegistered(true);
@@ -33,7 +33,7 @@ function App() {
 
     const choice = data.get("choice");
 
-    update(firebaseRef(database, "react-intro-survey"), {
+    update(firebaseRef(database, "familiarity"), {
       [`/responses/${username}`]: choice,
     })
       .then(() => {
@@ -44,7 +44,7 @@ function App() {
   };
   useEffect(() => {
     if (isRegistered && username) {
-      onValue(firebaseRef(database, "react-intro-survey"), (snapshot) => {
+      onValue(firebaseRef(database, "familiarity"), (snapshot) => {
         const familiarity = snapshot.val();
         setQuestion(familiarity.question);
         setChoices(familiarity.choices);
